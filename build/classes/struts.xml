@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring" />
+<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.reload" value="true" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <constant name="struts.custom.i18n.resources" value="globalMessages" />
+	<constant name="struts.url.includeParams" value="none" />
+	<constant name="struts.ui.theme" value="xhtml"></constant>
+	<package name="struts2" extends="struts-default">
+		<action name="login" class="loginAction">
+			<result name="success">/success.jsp</result>
+			<result name="failer">/error.jsp</result>
+		</action>
+		<action name="user" class="userAction">
+		 <result name="success" type="redirect">/userquery.action</result>
+		</action>		
+		<action name="userquery" class="userQueryAction">
+			<result name="success">/query.jsp</result>	
+		</action>		
+		<action name="userdelete" class="userDeleteAction"> 
+			<result name="success" type="redirect">/userquery.action</result>
+		</action>		
+		<action name="userupdate" class="userUpdateAction">
+			<result name="success" type="redirect">/userquery.action</result>
+			<result name="input">/update.jsp</result>
+		</action>
+	</package>
+</struts>    
